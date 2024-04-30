@@ -11,7 +11,11 @@
   </head>
   <body>
     <%= render 'layouts/header' %>
-    <%= render 'layouts/search' %>
+    <% if user_signed_in? %>
+      <div class="d-flex justify-content-center mb-2">
+        <%= render 'layouts/search' %>
+      </div>
+    <% end %>
       <main>
         <p id="notice"><%= notice %></p>
         <%= yield %>
