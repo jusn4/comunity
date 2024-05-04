@@ -1,6 +1,6 @@
 class GroupsController < ApplicationController
   before_action :authenticate_user!
-  before_action :ensure_current_user!, only: [:edit, :update]
+  before_action :ensure_current_user, only: [:edit, :update]
 
   def index
     @book = Book.new
@@ -22,7 +22,7 @@ class GroupsController < ApplicationController
     @group = Group.new(group_params)
     @group.owner_id = current_user.id
     if @group.save
-      redirect_to groups_path
+      redirect_to groups_path,notice: "You have created group successfully."
     else
       render 'new'
     end

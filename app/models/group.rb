@@ -8,6 +8,6 @@ class Group < ApplicationRecord
   has_one_attached :group_image
 
   def is_owned_by?(user)
-    owned.id == user.id
+    owner.id == user.id
   end
 end
